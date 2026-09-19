@@ -1,6 +1,7 @@
 package com.andrewclark.task_api.service;
 import com.andrewclark.task_api.dto.CreateTaskRequest;
 import com.andrewclark.task_api.dto.UpdateTaskRequest;
+import com.andrewclark.task_api.exception.TaskNotFoundException;
 import com.andrewclark.task_api.repository.TaskRepository;
 import org.springframework.stereotype.Service;
 import com.andrewclark.task_api.entity.Task;
@@ -45,7 +46,7 @@ public class TaskService {
 
     public Task getTask(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> new TaskNotFoundException(id));
+                .orElseThrow(() -> new TaskNotFoundException("Task not foudn wiht id = " + id.toString()));
     }
 
 }
