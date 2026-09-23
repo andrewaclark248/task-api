@@ -46,7 +46,7 @@ public class TaskService {
 
     public Task getTask(Long id) {
         return taskRepository.findById(id)
-                .orElseThrow(() -> new TaskNotFoundException("Task not foudn wiht id = " + id.toString()));
+                .orElseThrow(() -> new TaskNotFoundException("Task not found with id = " + id.toString()));
     }
 
 }
